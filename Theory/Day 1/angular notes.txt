@@ -1,0 +1,140 @@
+Angular is SPA (Single Page Application).
+Angular uses TypeScript(MS) 
+TypeScript is developed by Microsoft and supported Google.
+Angular is modular.
+
+Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps.
+
+Angular is a development platform, built on TypeScript
+A component-based framework for building scalable web applications
+
+
+NodeJS Server: on which our angular application will run. It provides a tool called NPM(Node Package Manager).
+NPM: will help you download angular packages(contains angular libraries) 
+TypeScript: 
+Angular CLI (Command Line Interface)
+
+Prashu-solved
+Sana-solved
+Yashpal-solved
+Kunal-
+Akshit-solved
+Rohan-solved
+Ankit-solved
+
+To create new Angular application.
+
+npm cache clean --force
+npm uninstall -g @angular/cli
+npm install -g @angular/cli@latest
+ng --version
+ng new FirstApp
+
+What is a Component?
+A component is basically a class which has properties(fields) and behaviour(method). A component class must be annotated with
+@Component decorator(annotation) just above the class.
+@Component indicates that the class below is a component. It contains metadata.
+It contains following 3 properties:
+1. selector: a custom tag <></>
+2. 
+   template: directly write HTML code.
+   templateUrl: link to a separate HTML file.
+3. 
+  style: directly write CSS code.
+  StyleUrl: link to a separate CSS file.
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'FirstApp';
+}
+
+
+//Inline template & inline style:
+ng g c sample -it -is --skip-tests
+
+@Component({
+  selector: 'app-root',
+  template: '<div>this is div</div>',
+  style: 'div{color:red}'
+})
+export class AppComponent {
+  title = 'FirstApp';
+}
+
+
+
+
+
+--App Module
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+declarations: All components which you have created in your application, must be added in the declaration section.
+
+imports: All system modules and user modules must be added in the imports section.
+
+providers: All services must be added in providers.
+
+bootstrap: It contains the name of the component which you want to run first.Also known as bootstrap component.
+
+-- to create user component
+ng g c home
+   OR
+ng generate component home
+
+---------------Data Binding---------------
+
+1. One way binding: Also know as Interpolation.
+  The flow in interpolation is from 
+  component(ts) to view(html).
+For User it is read only data.
+
+2. Property Binding: is used to bind the values of component properties to HTML element property.
+When you are working with non-string values like
+boolean to set the property value of an HTML element, use property binding.
+
+html elements and their properties:
+img --->src
+div ---> innerText/innerHTML
+form --> action
+button--> disable,value
+a --->href
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

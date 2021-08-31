@@ -1,0 +1,12 @@
+<h1>Calculator</h1>
+<input type="number" [(ngModel)]=num1/> <br><br>
+<input type="number" [(ngModel)]=num2/> <br><br>
+
+Result<span [innerHtml]='result'></span>
+<br><br>
+<input type="radio" name="cal" (click)="cal(1)">Add
+<input type="radio" name="cal" (click)="cal(2)">sub
+<input type="radio" name="cal" (click)="cal(3)">Mult
+<input type="radio" name="cal" (click)="cal(4)">div
+<input type="radio" name="cal" (click)="cal(5)">mod
+

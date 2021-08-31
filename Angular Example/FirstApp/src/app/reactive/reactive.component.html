@@ -1,0 +1,16 @@
+<form [formGroup]="loginForm" (ngSubmit)="submitLogin(loginForm)">
+    <div>
+        <label>Email</label>
+        <input formControlName="email" type="text" id="email" placeholder="Enter Email">
+        <div *ngIf="loginForm.get('email').hasError('pattern')">
+        Email id is invalid
+        </div>
+    </div>
+    <div>
+        <label>Password</label>
+        <input formControlName="pwd" type="password" id="pwd" placeholder="Enter Password">
+    </div>
+    <div>
+        <button type="submit">Login</button>
+    </div>
+</form>

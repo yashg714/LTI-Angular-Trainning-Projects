@@ -1,0 +1,71 @@
+h4{
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -60px;
+}
+
+.pb{
+   text-align: center;
+} 
+
+.cn{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.div1,.div2,.div3{
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.div1{
+    -ms-transform-origin-x: 20px;
+    -ms-transform-origin-y: 50%;
+}
+
+.addcon{
+    color: white;
+    background-color: blue;
+    margin-left: 60px;
+    width: 150px;
+    height: 30px;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    padding : 4px;
+    border-radius: 8px;
+    margin-top: -50px;
+}
+
+.search{
+    width: 80%;
+    margin: 20px 0px 20px 25px;
+    height: 30px; 
+} 
+
+#f1{
+    background-color:#eaece5;
+   margin: 0px 60px;
+   width: fit-content;
+}
+#f2{
+    background-color: white;
+   margin: 20px 40px;
+   width: fit-content;
+}
+
+.fa-address-book{
+  width: 80px;
+  height: 50px;
+}
+
+.fa-phone{
+    color: green;
+    margin-right: 7px;
+}
+
+.fa-trash{
+    color: red;
+    margin-left: 7px;
+    cursor: pointer;
+}

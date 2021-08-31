@@ -1,0 +1,30 @@
+<div >
+<!-- <form #regForm=ngForm (ngSubmit)="registerUser()"> -->
+    <form #regForm=ngForm (ngSubmit)="registerUser(regForm)">
+    <!-- {{myForm.value|json}}<br>
+    {{reg|json}}<br> -->
+    {{regForm.invalid}}
+    {{regForm.valid}}
+    <input type="text" #un=ngModel name="uname" id="uname" placeholder="Enter User Name" minlength="4" [(ngModel)]="reg.userName" required><br>
+    <!-- {{un.className}} -->
+    <!-- {{un.touched}} {{un.dirty}} {{un.invalid}} -->
+    <div *ngIf="un.invalid && (un.dirty||un.touched)" style="color: red;">
+        <div *ngIf="un.errors?.required">Name is required</div>
+        <div *ngIf="un.errors?.minlength">Name must contain min. 4 letter</div>
+    </div>
+    <input type="text"#password name="upass"  id="upass" placeholder="Enter Password" [(ngModel)]="reg.userPassword" required
+    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"><br>
+    <!-- {{password.className}} -->
+    <input type="email" #email=ngModel name="email" id="email" placeholder="Enter Email" [(ngModel)]="reg.userEmail" required
+    ><br>
+    <div *ngIf="email.invalid && (email.dirty||email.touched)" style="color: red;">
+        <div *ngIf="email.errors?.required">Email is required</div>
+    </div>
+    <input type="text" #phone=ngModel name="mobile" id="mobile" placeholder="Enter Mobile No" [(ngModel)]="reg.userPhone" required
+    pattern="^[6-9]\d{9}$"><br>
+    <div *ngIf="phone.invalid && (phone.dirty||phone.touched)" style="color: red;">
+        <div *ngIf="phone.errors?.required">Phone NO. is required</div>
+    </div>
+    <button [disabled]=regForm.invalid type="submit">Register</button>
+</form>
+</div>

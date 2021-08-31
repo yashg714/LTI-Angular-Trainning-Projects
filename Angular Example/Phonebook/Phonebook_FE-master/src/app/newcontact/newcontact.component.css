@@ -1,0 +1,71 @@
+form {
+    border: .5em solid lighten(deepskyblue, 30%);
+    border-radius: .2em;
+    max-width: 400px;
+    margin: 3em auto;
+    padding: 1em;
+}
+
+
+h4 {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 0;
+}
+
+.fname,.lname,.phone{
+    margin-top: 10px;
+    border-color:  #77a8a8;
+    font-size: medium;
+}
+
+fieldset{
+    width: 40%;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-left: 330px;
+  }
+label {
+    display: block;
+    margin-bottom: .5em;
+    cursor: pointer;
+}
+
+input[type="text"] {
+    display: block;
+    width: 95%;
+    padding: .5em;
+    transition: .5s ease-out; 
+  
+}
+
+.create{
+    background-color: blue;
+    color: white;
+}
+
+.create:hover{
+    background-color:navy;
+    color: white;
+}
+.cancel{
+   background-color: grey;
+   color: white;
+   margin-left: 210px;
+}
+
+.cancel:hover{
+    background-color: black;
+}
+
+button{
+    border-radius: 8px;
+    margin-left: auto;
+    border-style: hidden;
+    width: 80px;
+    height: 50px;
+    padding: 0; 
+    outline: none;
+    cursor: pointer;
+}

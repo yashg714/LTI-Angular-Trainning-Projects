@@ -1,0 +1,250 @@
+Angular is SPA (Single Page Application).
+Angular uses TypeScript(MS) 
+TypeScript is developed by Microsoft and supported Google.
+Angular is modular.
+
+Angular is an application design framework and development platform for creating efficient and sophisticated single-page apps.
+
+Angular is a development platform, built on TypeScript
+A component-based framework for building scalable web applications
+
+
+NodeJS Server: on which our angular application will run. It provides a tool called NPM(Node Package Manager).
+NPM: will help you download angular packages(contains angular libraries) 
+TypeScript: 
+Angular CLI (Command Line Interface)
+
+To create new Angular application.
+
+npm cache clean --force
+npm uninstall -g @angular/cli
+npm install -g @angular/cli@latest
+ng --version
+ng new FirstApp
+
+What is a Component?
+A component is basically a class which has properties(fields) and behaviour(method). A component class must be annotated with
+@Component decorator(annotation) just above the class.
+@Component indicates that the class below is a component. It contains metadata.
+It contains following 3 properties:
+1. selector: a custom tag <></>
+2. 
+   template: directly write HTML code.
+   templateUrl: link to a separate HTML file.
+3. 
+  style: directly write CSS code.
+  StyleUrl: link to a separate CSS file.
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'FirstApp';
+}
+
+
+//Inline template & inline style:
+ng g c sample -it -is --skip-tests
+
+@Component({
+  selector: 'app-root',
+  template: '<div>this is div</div>',
+  style: 'div{color:red}'
+})
+export class AppComponent {
+  title = 'FirstApp';
+}
+
+--App Module
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent
+  ],
+  imports: [
+    BrowserModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+declarations: All components which you have created in your application, must be added in the declaration section.
+
+imports: All system modules and user modules must be added in the imports section.
+
+providers: All services must be added in providers.
+
+bootstrap: It contains the name of the component which you want to run first.Also known as bootstrap component.
+
+-- to create user component
+ng g c home
+   OR
+ng generate component home
+
+--------------------------------------Data Binding---------------
+
+--One way binding:Either from Component to View OR from View to Component.
+
+1.Interpolation.
+  The flow in interpolation is from 
+  component(ts) to view(html).
+For User it is read only data. 
+It is done using {{}}
+
+2. Property Binding: is used to bind the values of component properties to HTML element property.
+When you are working with non-string values like
+boolean to set the property value of an HTML element, use property binding.
+It is done using []. The flow is from Component to View.
+
+html elements and their properties:
+img --->src
+div ---> innerText/innerHTML
+form --> action
+button--> disable,value
+a --->href
+
+3. Event Binding: From View to Component. When a user clicks a button, press any key or mouse over.......
+It is done by using ().
+
+$event: indicates that which html element has raised the event.
+A common way to handle events is to pass the event object, $event, to the method handling the event. The $event object often contains information the method needs, such as a user's name or an image URL.
+The target event determines the shape of the $event object.
+
+2 one way binding
+1. View to Component (Event Binding): ()
+              +
+2. Component to View (Interpolation/Property Binding): []
+
+Ques:
+Create two radio buttons (1.Enable 2. Disable)
+Create a button which will be enabled if Enable radio button is clicked and disable button if Disable radio button is clicked.
+
+Two way binding: [(ngModel)]: banana in a box
+To implement two way binding, we need to use "ngModel" directive and ngModel directive is available in a system module callled "FormsModule", so we need to import this module in app.module.ts.
+
+[value]='name'
+     +
+(input)="name=$event.target.value"
+     =
+[(ngModel)]='name'
+
+<input [value]='name' (input)="$event"/>
+<input [()]='name'/>
+class{
+  name:string;
+
+  name=$event.target.value;
+
+}
+
+Difference between HTML attributes and DOM property
+
+--------------------------------Structural Directive------------------
+Angular Directives:
+are used to change the behaviour/appearence/layout of the DOM elements.
+
+1. Structural Directives:
+*ngIf: used to add or remove html elements from the DOM tree at runtime based on some condition.
+
+*ngFor: used to iterate over a collection of data.
+for(String s: names){
+   sysout(s)
+}
+*ngSwitch
+-------------------------------Angular Pipes--------------------------------------
+Angular Pipe takes the raw data as input and transform them into desired format. For that angular provides some built-in pipes.But, you can also create your own pipes which is called custom pipes.
+
+Inbuilt-pipes: lowercase,uppercase,titlecase
+               currency
+	       date
+
+
+------------------------------------------Angular Forms--------------------------
+Forms are basic building blocks for any type of application. For example, signup page, login page, contactus page etc....
+Angular forms support two way binding.
+It can help track changes:
+ -whether user has visited the element or not
+ -if visited the element, has made any changes ot not
+It can help you validate fields:
+ -if the changes valid or not.
+
+Types of Forms:
+1. Template-driven Forms: Most of the work(validation,tracking changes etc.. will be done in HTML forms only.
+Can be used to create simple forms.
+
+2. Reactive Forms: Also called Model-driven forms. In this, Models(classes) are responsible for user interaction and validation
+can be used to create complex forms.
+
+
+Template Driven Forms:
+To use angular forms features, we need to use 'ngForm' Directive.
+Along with ngForm, we will also use ngModel to perform two way data binding.
+
+Strong password: Minimun 8 characters, at least 1 caps, 1 small,1 digit, 1 special symbol
+Simant@123
+
+how to know whether user visited the element?
+how to know whether user has changed the data?
+how to know whether modified data is valid or not?
+
+                 ngModel properties:
+className		Property
+ng-untouched		untouched
+ng-touched		touched
+ng-pristine		pristine (not modified yet)
+ng-dirty		dirty    (modified)
+ng-valid		valid    
+----------------------------------------Angular Services------------------------
+Angular Service are the reusable piece of code that will some specific tasks.
+
+JSON: JavaScript Object Notation
+var arr=[{"John"}];
+
+ng g service myapi
+Ensure that the service you have created in added in the ___________ section in the app.module.ts.
+--To make an API call, we need to use an Angular API called "HttpClient". In order to use "HttpClient" we need to import a system module "HttpClientModule".
+
+making API call means you are making request. To make API calls, you use http protocol.
+and HTTP has several request types:
+GET : used to retrieve data(resource) from server.
+POST: used to add/send new data(resource) to the server.
+PUT: used to update existing data(resource) on the server.
+DELETE:used to remove existing data(resource) from the server.
+
+AN angular service class needs to be decorated with @Injectable decorator.
+An injectable decorator is used to inject other dependencies into the service.
+
+https://jsonplaceholder.typicode.com/posts?userId=3
+-------------------------------------Angular Routing--------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

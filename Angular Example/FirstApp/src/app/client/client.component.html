@@ -1,0 +1,36 @@
+<div>User ID:<input type="text"  (click)="getData()" [(ngModel)]=userID > <br>
+<button (click)="getData()">Submit</button>
+</div>
+<h1>Welcome {{userName}}</h1>
+<table>
+    <tr>
+        <th>User Id</th>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Body</th>
+    </tr>
+    <tr *ngFor="let p of posts">
+        <td>{{p.userId}}</td>
+        <td>{{p.id}}</td>
+        <td>{{p.title}}</td>
+        <td>{{p.body}}</td>
+    </tr>
+</table>
+
+
+<table>
+    <tr>
+        <th>PostId</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Body</th>
+    </tr>
+    <tr *ngFor="let c of comments">
+        <td>{{c.postId}}</td>
+        <td>{{c.id}}</td>
+        <td>{{c.name}}</td>
+        <td>{{c.email}}</td>
+        <td>{{c.body}}</td>
+    </tr>
+</table>

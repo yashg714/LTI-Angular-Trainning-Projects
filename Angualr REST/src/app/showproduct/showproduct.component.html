@@ -1,0 +1,21 @@
+<p>showproduct works!</p>
+
+<table>
+    <thead style="color: blue;">
+        <th>Product ID</th>
+        <th> Product Name</th>
+        <th> Price</th>
+        <th> Category</th>
+        <th>Manage</th>
+    </thead>
+    <tr *ngFor="let p of prod">
+            <td> {{p.prodid}}</td>
+            <td> {{p.prodname}}</td>
+            <td> {{p.price}}</td>
+            <td> {{p.category}}</td>
+            <td> <button (click)="editInfo(p.prodid)">Edit</button>
+            
+                <button (click)="deleteRow(p.prodid)">Delete</button>
+            </td>
+    </tr>
+    </table>

@@ -1,0 +1,58 @@
+<div>
+  <fieldset>
+    <form #addContact="ngForm" (ngSubmit)="addcontact()"> 
+      <h2 style="text-align: center;">New Contact</h2>
+     
+      <label>First Name</label>
+      <input type="text" placeholder="Enter First Name" #nm="ngModel" name="fname" 
+      minlength="3" class="fname" required pattern="^[a-zA-Z]+$" [(ngModel)]="contact.firstName" >
+      <div *ngIf="nm.invalid && (nm.dirty || nm.touched)" style="color: red; border-color: red;">
+        <div *ngIf="nm.errors.required">
+          First Name is required.
+        </div>
+        <div *ngIf="nm.errors.minlength">
+          First Name must be at least 3 characters long.
+        </div>
+        <div *ngIf="nm.errors.pattern">
+          First Name must contain alphabets only.
+        </div>
+      </div><br>
+
+
+      <label> Last Name</label>
+      <input type="text" placeholder="Enter Last Name" name="lname"
+      class="lname" required  pattern="^[a-zA-Z]+$" minlength="1" [(ngModel)]="contact.lastName" #ln="ngModel">
+      <div *ngIf="ln.invalid && (ln.dirty || ln.touched)" style="color: red; border-color: red;">
+        <div *ngIf="ln.errors.required">
+          Last Name is required.
+        </div>
+        <div *ngIf="ln.errors.minlength">
+          Last Name must be at least 1 characters long.
+        </div>
+        <div *ngIf="ln.errors.pattern">
+          Last Name must contain alphabets only.
+        </div>
+      </div><br>
+
+      <label>Contact Number</label>
+      <input type="text"  #mb="ngModel" required name="uphone" class="phone"
+      pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Enter Phone Number" [(ngModel)]="contact.contact">
+      <div *ngIf="mb.invalid && (mb.dirty || mb.touched)" style="color: red; border-color: red;">
+        <div *ngIf="mb.errors.required">
+         Phone Number is Required.
+        </div>
+        <div *ngIf="mb.errors.minlength">
+          Phone Number Length Should be 10 
+        </div>
+        <div *ngIf="mb.errors.pattern">
+          Invalid Phone Number
+        </div>
+      </div><br>
+
+      <br><br>
+      <button type="submit" class="create" [disabled]="addContact.form.invalid" >Create</button>
+      &nbsp;
+      <button type="reset"class="cancel">Cancel</button>
+   </form>
+  </fieldset>
+</div>

@@ -1,0 +1,33 @@
+<fieldset id="f1">
+  <div class="div1">
+    <span class="pb"> 
+      <i class="fa fa-address-book" aria-hidden="true"></i>&nbsp;
+      <h4>Contacts</h4>
+    </span>
+    <br>
+    <button type="submit" class="addcon" (click)="addContact()">+ Add Contact</button>    
+  </div>
+  
+  <div class="div2"> 
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <input type="text" class="search" placeholder="Search for contacts by last name... " [(ngModel)]="name" (change)="search(name)"/>
+  </div>
+
+
+ <div class="div3">
+   <fieldset id="f2">
+      <table>
+        <tr  *ngFor='let c of contact'>
+          <div>
+           <td style="text-align: center;">{{c.firstName +" "+c.lastName}}</td>
+          </div>
+          <div>
+           <td><i class="fa fa-phone" aria-hidden="true"></i>{{c.contact}}</td>
+           <td><i class="fa fa-trash" aria-hidden="true" (click)="delContact(c.contactId)"></i></td>
+           <hr>
+          </div>
+        </tr>
+      </table>
+    </fieldset>
+  </div>
+</fieldset>

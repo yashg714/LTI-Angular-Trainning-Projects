@@ -1,0 +1,20 @@
+<button (click)="sayHello()">Click</button>
+<br><br>
+<div (click)="divClicked()">
+Click Here
+</div>
+<br><br><br>
+<!-- <div>Lucky Number</div>
+<div>Your lucky number is {{generate()}}</div> 
+<button (click)="generate()">generate</button>-->
+
+<input type="text" (input)="getText($event)"><br>
+<div>{{textValue}}</div>
+
+<input type="radio" name="rbutton" (click)="enable()">Enable
+<input type="radio" name="rbutton" (click)="disable()">Disable
+<br><br>
+<button [disabled]='isboolean'>Check</button>
+<br><br>
+<input type="text" [(ngModel)]="name"/> <br>
+Hi, <span [innerHtml]='name'></span>
